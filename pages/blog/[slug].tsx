@@ -1,32 +1,32 @@
-import { NextPage } from "next"
-import Image from "next/image"
-import Head from "next/head"
-import { getAllPosts, getPostBySlug } from "../../utils/blog"
-import { CSSProperties } from "react"
+import { NextPage } from "next";
+import Image from "next/image";
+import Head from "next/head";
+import { getAllPosts, getPostBySlug } from "../../utils/blog";
+import { CSSProperties } from "react";
 
 type ImageType = {
-  src: string
-  alt: string
-  width: number
-  height: number
-}
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
 
 export interface BlogPostProps {
-  slug: string
+  slug: string;
   frontmatter: {
-    title: string
-    date: string
-    mainImage: ImageType
-    excerpt: string
-  }
-  html: string
+    title: string;
+    date: string;
+    mainImage: ImageType;
+    excerpt: string;
+  };
+  html: string;
 }
 
 const blogContainerStyle: CSSProperties | undefined = {
   maxWidth: 1200,
   margin: "0 auto",
   padding: "0 1.0875rem 1.45rem",
-}
+};
 
 const BlogPost: NextPage<BlogPostProps> = (post) => {
   return (
@@ -50,23 +50,23 @@ const BlogPost: NextPage<BlogPostProps> = (post) => {
         </div>
       </>
     </>
-  )
-}
+  );
+};
 
-export default BlogPost
+export default BlogPost;
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+  const post = getPostBySlug(params.slug);
 
   return {
     props: {
       ...post,
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts()
+  const posts = getAllPosts();
 
   return {
     paths: posts.map((post) => {
@@ -74,8 +74,8 @@ export async function getStaticPaths() {
         params: {
           slug: post.slug,
         },
-      }
+      };
     }),
     fallback: false,
-  }
+  };
 }

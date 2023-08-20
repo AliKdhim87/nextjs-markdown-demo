@@ -1,14 +1,14 @@
-import type { NextPage } from "next"
-import Head from "next/head"
-import Image from "next/image"
-import Link from "next/link"
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 
-import styles from "../styles/Home.module.css"
-import { getAllPosts } from "../utils/blog"
-import { BlogPostProps } from "./blog/[slug]"
+import styles from "../styles/Home.module.css";
+import { getAllPosts } from "../utils/blog";
+import { BlogPostProps } from "./blog/[slug]";
 
 interface HomePageProps {
-  posts?: BlogPostProps[]
+  posts?: BlogPostProps[];
 }
 
 const Home: NextPage<HomePageProps> = ({ posts }) => (
@@ -20,14 +20,12 @@ const Home: NextPage<HomePageProps> = ({ posts }) => (
     </Head>
 
     <main className={styles.main}>
-      <h1 className={styles.title}>Welcome to Blog post</h1>
+      <h1 className={styles.title}>Welcome to my Blog post</h1>
       <div className={styles.grid}>
         {posts?.map((post, index) => (
-          <Link href={`/blog/${post.slug}`} passHref key={index}>
-            <a className={styles.card}>
-              <h2>{post.frontmatter.title}</h2>
-              <p>{post.frontmatter.excerpt}</p>
-            </a>
+          <Link href={`/blog/${post.slug}`} className={styles.card} key={index}>
+            <h2>{post.frontmatter.title}</h2>
+            <p>{post.frontmatter.excerpt}</p>
           </Link>
         ))}
       </div>
@@ -46,16 +44,16 @@ const Home: NextPage<HomePageProps> = ({ posts }) => (
       </a>
     </footer>
   </div>
-)
+);
 
-export default Home
+export default Home;
 
 export async function getStaticProps() {
-  const posts = getAllPosts()
+  const posts = getAllPosts();
 
   return {
     props: {
       posts,
     },
-  }
+  };
 }
