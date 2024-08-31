@@ -23,18 +23,17 @@ cd nextjs-blog-demo
 3. Install the project dependencies:
 
 ```shell
-yarn install
+pnpm install
 
 ```
 
 4. Start the development server:
 
 ```shell
-yarn dev
+pnpm dev
 ```
 
-
-5. Open your browser and go to [http://localhost:3000](http://localhost:3000) to explore the blog post website.
+5. Open your browser and go to http://localhost:3000 to explore the blog post website.
 
 ## Features
 
@@ -47,12 +46,11 @@ yarn dev
 
 The project's structure is organized as follows:
 
-- `/content/blog`: Contains Markdown files for individual blog posts.
+- `src/content/blog`: Contains Markdown files for individual blog posts.
 - `/public`: Holds static assets such as images.
-- `/styles`: Includes CSS styles used throughout the project.
-- `/utils`: Contains utility functions used in the application.
-- `/pages`: Defines Next.js pages, including dynamic blog post pages.
-- `/components`: Holds reusable React components.
+- `src/styles`: Includes CSS styles used throughout the project.
+- `src/utils`: Contains utility functions used in the application.
+- `src/apps`: Defines Next.js pages, including dynamic blog post pages.
 
 ## Contributing
 
@@ -64,4 +62,4 @@ This project is licensed under the [MIT License](./LICENSE). Copyright © Ali Ka
 
 ## Contact
 
-If you have questions or feedback, you can contact me at [alikadhim87nl@gmail.com](mailto:alikadhim87nl@gmail.com).
+If you have questions or feedback, you can contact me at [https://ali-dev.com/contact](https://ali-dev.com/contact)
